@@ -21,7 +21,7 @@ export const fetchUser = async (req: Request, res: Response) => {
     const foundUser = await UserModel.findOne({ email: user.email });
 
     if (!foundUser) {
-      return new Err(401, "USER_NOT_FOUND");
+      throw new Err(401, "USER_NOT_FOUND");
     }
 
     const returnUser: User = {

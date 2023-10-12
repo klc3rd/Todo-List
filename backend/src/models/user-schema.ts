@@ -1,12 +1,20 @@
 import mongoose from "mongoose";
 
 const ToDo = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
   body: {
     type: String,
+    required: true,
   },
   createdOn: {
     type: Date,
     default: Date.now,
+  },
+  completedOn: {
+    type: Date,
   },
   status: {
     type: String,

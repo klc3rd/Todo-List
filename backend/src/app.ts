@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 
 import UserRouter from "./routes/users";
+import TodoRouter from "./routes/todos";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use("/users", UserRouter);
+app.use("/todos", TodoRouter);
 
 mongoose.connect(CONNECTION).then(() => {
   console.log("Connected to DB");
