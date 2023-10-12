@@ -69,7 +69,6 @@ export const createUser = async (req: Request, res: Response) => {
       message: "REGISTRATION_SUCCESS",
       token: generateToken(retUser),
     });
-    return;
   } catch (error) {
     returnError(res, error);
   }
