@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import bcrpyt from "bcrypt";
 
-import { generateToken, retrieveUserFromToken } from "../helpers/jwt";
+import { generateToken, retrieveUserFromToken } from "../utils/jwt";
 import Err, { returnError } from "../models/err";
 import { UserModel } from "../models/user-schema";
 import { User } from "../models/user";
