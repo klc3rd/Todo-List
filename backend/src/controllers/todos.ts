@@ -52,3 +52,25 @@ export const fetchAllTodos = async (req: any, res: Response) => {
     returnError(res, error);
   }
 };
+
+export const fetchTodo = async (req: any, res: Response) => {
+  try {
+    const email = req.user.email;
+
+    const foundUser = await UserModel.findOne({ email });
+
+    if (!foundUser) {
+      throw new Err(400, "INVALID_USER");
+    }
+
+    const todo = foundUser.todos.id(req.params.id);
+
+    if (!todo) {
+      throw new Err(404, "INVALID_TODO");
+    }
+
+    res.json(todo);
+  } catch (error) {
+    returnError(res, error);
+  }
+};
